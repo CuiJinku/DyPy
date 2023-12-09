@@ -95,7 +95,7 @@ The **DrPy** tool command will generate 2 image files with the same name as the 
 
 The figure below is the value flow graph for the `np_array.py` example script:
 
-[np_array value flow graph](images/np_array.py.png)
+![np_array value flow graph](images/np_array.py.png)
 
 The red arrow indicates there exist redundancies when values flow through the function `func_pass_it_through` to the function `func_make_a_copy`. If you substitute the `np.array(arr)` at Line 16 with `arr.copy()` and run the command again, you will get the same value flow graph.
 
@@ -119,7 +119,7 @@ $drrun -t drcctlib_python -- python -m valueflow no_copy.py
 
 The value flow graph updates as the following picture:
 
-[no_copy value flow graph](images/no_copy.py.png)
+![no_copy value flow graph](images/no_copy.py.png)
 
 There is no red arrow between the aforementioned two functions, as there is no redundant copy.
 
@@ -143,7 +143,7 @@ $drrun -t drcctlib_python -- python -m valueflow edit_copy.py
 
 The corresponding value flow graph is as the picture beblow:
 
-[edit_copy value flow graph](images/edit_copy.py.png)
+![edit_copy value flow graph](images/edit_copy.py.png)
 
 There is no red warning on the graph. It is reasonable because the program in `edit_copy.py` modifies the copied object after the copy operation. The copy is not regarded as redundant because the programmer might want to keep the original data for future use.
 
