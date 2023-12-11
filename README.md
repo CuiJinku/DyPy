@@ -219,3 +219,60 @@ Click the **Change runtime type** button to switch to the GPU runtime:
 Now, click the **Play** button to execute the code:
 
 ![play button of the jupyter notebook](images/start_to_run.png)
+
+
+## Installation
+
+**The following processes are optional. They are primarily used to guide the other tool users how to set up the tool from scratch.**
+
+The installation is **optional** for Artifact evaluation process, because the aforementioned docker is already configured.
+
+```shell
+# APT packages
+sudo apt install wget curl git build-essential python3-dev python3-pip python3.10-venv graphviz libgraphviz-dev pkg-config zsh
+
+# Python modules
+python3 -m pip install pygraphviz viztracer
+python3 -m pip install --upgrade build
+
+
+# Miniconda
+```shell
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+# rm -rf ~/miniconda3/miniconda.sh          # optional
+```
+
+## Initialize the env
+```shell
+~/miniconda3/bin/conda init zsh
+```
+
+## Download the source code from Zenodo
+
+```
+
+```
+
+## Building
+
+```shell
+cd drcctprof_clients
+./build_clean.sh
+./build.sh
+
+cd valueflow
+python3 -m build
+python3 -m pip install dist/valueflow-0.0.1-py3-none-any.whl
+```
+
+## Set the global environmental variable
+```console
+export drrun=/path/to/drcctprof_clients/DrCCTProf/build/bin64/drrun
+```
+
+## Execution 
+```console
+$drrun -t drcctlib_python -- python3 -m valueflow <python application>
+```
